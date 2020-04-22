@@ -32,12 +32,12 @@ function dataFromDirectory(path) {
     });
   });
 }
-function dataFromFile(filename) {
-  getHash.getHashValues(filename, addToFile);
-  function addToFile(buff) {
-    fs.appendFile("write.txt", buff, function (err) {
+function dataFromFile(fileName) {
+  getHash.getHashValues(fileName, addToFile);
+  function addToFile(data) {
+    fs.appendFile("write.txt", data, function (err) {
       if (err) throw err;
-      console.log(filename + " hash saved!");
+      console.log(fileName + " hash saved successfully!");
     });
   }
 }
